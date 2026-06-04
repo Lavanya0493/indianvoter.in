@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Indian Voter — Democracy, History & Political Consciousness</title>
+  <meta name="description" content="Explore India's democratic journey — from independence to the present. Historic milestones, election data, political movements, and civic awareness for every Indian voter."/>
+  <meta name="keywords" content="Indian elections, Indian democracy, Indian voter, India politics history, Lok Sabha, political movements India"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --saffron: #FF6B00;
+      --deep-saffron: #D45500;
+      --white: #FAF7F2;
+      --ink: #1A1208;
+      --green: #1B6B3A;
+      --deep-green: #0F4023;
+      --gold: #C9982A;
+      --muted: #7A6E5F;
+      --paper: #F2EDE3;
+      --line: #D4C9B4;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: 'Libre Baskerville', Georgia, serif;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--ink);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 56px;
+      border-bottom: 2px solid var(--saffron);
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+    .nav-brand span { color: var(--saffron); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      color: #C0B8AC;
+      text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--saffron); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: var(--ink);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+      padding-top: 56px;
+    }
+
+    .hero-bg-pattern {
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,107,0,0.06) 60px),
+        repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,107,0,0.06) 60px);
+      pointer-events: none;
+    }
+
+    .ashoka-wheel {
+      position: absolute;
+      right: -80px; top: 50%;
+      transform: translateY(-50%);
+      width: 600px; height: 600px;
+      opacity: 0.04;
+      animation: spin 120s linear infinite;
+    }
+
+    @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
+
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 5rem 4rem 5rem 5rem;
+      position: relative; z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block; width: 32px; height: 1px;
+      background: var(--saffron);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
+      line-height: 1.0;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--saffron);
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: #A09484;
+      line-height: 1.75;
+      margin-top: 1.5rem;
+      max-width: 440px;
+    }
+
+    .hero-cta {
+      margin-top: 3rem;
+      display: flex; gap: 1rem; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--saffron);
+      color: var(--ink);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--deep-saffron); transform: translateY(-1px); }
+    .btn-outline {
+      border: 1px solid #4A4035;
+      color: #A09484;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--saffron); color: var(--white); }
+
+    .hero-right {
+      display: flex; align-items: center; justify-content: center;
+      padding: 5rem 4rem;
+      position: relative; z-index: 2;
+    }
+
+    .stat-stack {
+      display: flex; flex-direction: column; gap: 1.5rem;
+      width: 100%; max-width: 340px;
+    }
+    .stat-card {
+      border: 1px solid #2E2820;
+      padding: 1.5rem 2rem;
+      position: relative;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .stat-card:nth-child(1) { animation-delay: 0.3s; border-left: 3px solid var(--saffron); }
+    .stat-card:nth-child(2) { animation-delay: 0.5s; border-left: 3px solid var(--white); }
+    .stat-card:nth-child(3) { animation-delay: 0.7s; border-left: 3px solid var(--green); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    /* TICKER */
+    .ticker {
+      background: var(--saffron);
+      padding: 0.6rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 40s linear infinite;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* SECTIONS */
+    section { padding: 6rem 5rem; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .section-label::before {
+      content: ''; display: block;
+      width: 24px; height: 1px; background: var(--saffron);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    /* TIMELINE */
+    .timeline-section { background: var(--paper); }
+    .timeline-section h2 { max-width: 600px; }
+
+    .timeline {
+      margin-top: 4rem;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 100px;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+      position: relative;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-year {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--saffron);
+      text-align: right;
+      padding-right: 2rem;
+      line-height: 1.2;
+      position: relative;
+    }
+    .timeline-year::after {
+      content: '';
+      position: absolute;
+      right: -5px; top: 8px;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--saffron);
+      border: 2px solid var(--paper);
+    }
+
+    .timeline-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+    .timeline-content p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+    .timeline-tag {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    /* MOVEMENTS GRID */
+    .movements-section { background: var(--ink); }
+    .movements-section h2 { color: var(--white); }
+    .movements-section .section-label { color: var(--gold); }
+    .movements-section .section-label::before { background: var(--gold); }
+
+    .movements-grid {
+      margin-top: 3.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: #2E2820;
+    }
+
+    .movement-card {
+      background: var(--ink);
+      padding: 2.5rem 2rem;
+      transition: background 0.25s;
+      cursor: default;
+    }
+    .movement-card:hover { background: #1F1A12; }
+
+    .movement-icon {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+    .movement-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .movement-card p {
+      font-size: 0.88rem;
+      color: #706458;
+      line-height: 1.7;
+    }
+    .movement-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      margin-top: 1.25rem;
+    }
+
+    /* ELECTION DATA */
+    .elections-section { background: var(--white); }
+
+    .elections-table {
+      margin-top: 3rem;
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .elections-table thead tr {
+      border-bottom: 2px solid var(--ink);
+    }
+    .elections-table th {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      padding: 0 1rem 1rem 0;
+    }
+    .elections-table td {
+      padding: 1.25rem 1rem 1.25rem 0;
+      font-size: 0.92rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    .elections-table tr:hover td { background: var(--paper); }
+    .election-year-cell {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--saffron);
+    }
+    .winner-pill {
+      display: inline-block;
+      padding: 0.2rem 0.7rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    /* QUOTE */
+    .quote-section {
+      background: var(--green);
+      padding: 7rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-bg {
+      position: absolute;
+      font-family: 'Playfair Display', serif;
+      font-size: 40rem;
+      color: rgba(255,255,255,0.03);
+      top: -6rem; left: -2rem;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    blockquote {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative; z-index: 1;
+    }
+    blockquote p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+    blockquote cite {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      font-style: normal;
+    }
+
+    /* PILLARS */
+    .pillars-section { background: var(--paper); }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+    .pillar {
+      padding: 2rem;
+      border-top: 3px solid var(--line);
+      transition: border-color 0.2s;
+    }
+    .pillar:hover { border-color: var(--saffron); }
+    .pillar-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--line);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .pillar h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .pillar p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* NEWSLETTER */
+    .newsletter-section {
+      background: var(--ink);
+      padding: 6rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .newsletter-section h2 { color: var(--white); }
+    .newsletter-section p {
+      color: var(--muted);
+      margin-top: 1rem;
+      line-height: 1.75;
+    }
+    .subscribe-form {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .subscribe-form input {
+      background: #1A1510;
+      border: 1px solid #3A3025;
+      color: var(--white);
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.9rem;
+      padding: 1rem 1.25rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .subscribe-form input:focus { border-color: var(--saffron); }
+    .subscribe-form input::placeholder { color: #4A4035; }
+
+    /* FOOTER */
+    footer {
+      background: #0E0B07;
+      padding: 3rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #1E1A12;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 1rem;
+      color: var(--white);
+    }
+    .footer-brand span { color: var(--saffron); }
+    .footer-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: #3A3025;
+      text-align: center;
+    }
+    .footer-tricolour {
+      display: flex; gap: 3px;
+    }
+    .footer-tricolour span {
+      width: 18px; height: 4px; border-radius: 1px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .movements-grid { grid-template-columns: 1fr; }
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+      .newsletter-section { grid-template-columns: 1fr; gap: 3rem; }
+      section { padding: 4rem 2rem; }
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .hero-left { padding: 4rem 2rem; }
+      .timeline::before { left: 72px; }
+      .elections-section { overflow-x: auto; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Indian<span>Voter</span>.in</div>
+  <div class="nav-links">
+    <a href="#history">History</a>
+    <a href="#movements">Movements</a>
+    <a href="#elections">Elections</a>
+    <a href="#about">About</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <svg class="ashoka-wheel" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="250" cy="250" r="240" stroke="white" stroke-width="8"/>
+    <circle cx="250" cy="250" r="40" stroke="white" stroke-width="8"/>
+    <g stroke="white" stroke-width="3">
+      <!-- 24 spokes -->
+      <line x1="250" y1="10" x2="250" y2="210"/>
+      <line x1="250" y1="290" x2="250" y2="490"/>
+      <line x1="10" y1="250" x2="210" y2="250"/>
+      <line x1="290" y1="250" x2="490" y2="250"/>
+      <line x1="69" y1="69" x2="214" y2="214"/>
+      <line x1="286" y1="286" x2="431" y2="431"/>
+      <line x1="431" y1="69" x2="286" y2="214"/>
+      <line x1="214" y1="286" x2="69" y2="431"/>
+      <line x1="36" y1="161" x2="210" y2="230"/>
+      <line x1="290" y1="270" x2="464" y2="339"/>
+      <line x1="161" y1="36" x2="230" y2="210"/>
+      <line x1="270" y1="290" x2="339" y2="464"/>
+      <line x1="36" y1="339" x2="210" y2="270"/>
+      <line x1="290" y1="230" x2="464" y2="161"/>
+      <line x1="339" y1="36" x2="270" y2="210"/>
+      <line x1="230" y1="290" x2="161" y2="464"/>
+      <line x1="116" y1="22" x2="222" y2="220"/>
+      <line x1="278" y1="280" x2="384" y2="478"/>
+      <line x1="22" y1="384" x2="220" y2="278"/>
+      <line x1="280" y1="222" x2="478" y2="116"/>
+      <line x1="384" y1="22" x2="278" y2="220"/>
+      <line x1="222" y1="280" x2="116" y2="478"/>
+      <line x1="478" y1="384" x2="280" y2="278"/>
+      <line x1="220" y1="222" x2="22" y2="116"/>
+    </g>
+  </svg>
+
+  <div class="hero-left">
+    <div class="hero-eyebrow">Established 2025 · indianvoter.in</div>
+    <h1>The Voice of<em>India's Democracy</em></h1>
+    <p class="hero-sub">From the first general election of 1952 to the largest democratic exercise in human history — explore the stories, movements, and milestones that shaped modern India.</p>
+    <div class="hero-cta">
+      <a href="#history" class="btn-primary">Explore History</a>
+      <a href="#elections" class="btn-outline">Election Data</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stat-stack">
+      <div class="stat-card">
+        <div class="stat-num">968M</div>
+        <div class="stat-label">Registered voters · 2024</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">18</div>
+        <div class="stat-label">General Elections since 1952</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">75+</div>
+        <div class="stat-label">Years of unbroken democracy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    ◆ India's first general election (1952) had 173 million eligible voters &nbsp;&nbsp;&nbsp; ◆ The Constituent Assembly took 2 years, 11 months to draft the Constitution &nbsp;&nbsp;&nbsp; ◆ 1975 Emergency suspended civil liberties for 21 months &nbsp;&nbsp;&nbsp; ◆ 1977 saw India's first transfer of power to an opposition party &nbsp;&nbsp;&nbsp; ◆ The 2024 Lok Sabha election spanned 44 days across 7 phases &nbsp;&nbsp;&nbsp; ◆ India has 543 Lok Sabha constituencies &nbsp;&nbsp;&nbsp; ◆ The Right to Vote was granted to all adults from day one — no literacy or property test &nbsp;&nbsp;&nbsp; ◆ India's first general election (1952) had 173 million eligible voters &nbsp;&nbsp;&nbsp; ◆ The Constituent Assembly took 2 years, 11 months to draft the Constitution &nbsp;&nbsp;&nbsp; ◆ 1975 Emergency suspended civil liberties for 21 months &nbsp;&nbsp;&nbsp; ◆ 1977 saw India's first transfer of power to an opposition party &nbsp;&nbsp;&nbsp; ◆ The 2024 Lok Sabha election spanned 44 days across 7 phases &nbsp;&nbsp;&nbsp; ◆ India has 543 Lok Sabha constituencies &nbsp;&nbsp;&nbsp; ◆ The Right to Vote was granted to all adults from day one — no literacy or property test &nbsp;&nbsp;&nbsp;
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<section class="timeline-section" id="history">
+  <div class="section-label">Historic Milestones</div>
+  <h2>75 Years of Democratic History</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">1947</div>
+      <div class="timeline-content">
+        <h3>Independence & Partition</h3>
+        <p>On 15 August, India gained independence from British rule. The simultaneous partition into India and Pakistan displaced over 14 million people in one of history's largest mass migrations. Jawaharlal Nehru delivered his iconic "Tryst with Destiny" speech at midnight in Parliament.</p>
+        <span class="timeline-tag">Independence</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">1950</div>
+      <div class="timeline-content">
+        <h3>The Constitution Comes Into Force</h3>
+        <p>On 26 January, the Constitution of India replaced the Government of India Act. Drafted by a constituent assembly led by Dr B.R. Ambedkar, it established India as a sovereign democratic republic with universal adult franchise — at the time one of the most ambitious democratic experiments ever attempted.</p>
+        <span class="timeline-tag">Constitution</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">1952</div>
+      <div class="timeline-content">
+        <h3>The First General Election</h3>
+        <p>With 173 million eligible voters — most illiterate — India conducted its first Lok Sabha elections over four months. The Indian National Congress, led by Nehru, won a decisive majority. The world watched in disbelief: universal suffrage in a newly independent, largely rural nation.</p>
+        <span class="timeline-tag">Elections</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">1966</div>
+      <div class="timeline-content">
+        <h3>Indira Gandhi Becomes Prime Minister</h3>
+        <p>Indira Gandhi was sworn in as India's first and only female Prime Minister, a position she would hold for three separate terms. Her tenure reshaped Indian politics — marked by the nationalisation of banks, the 1971 Bangladesh Liberation War, and the controversial declaration of Emergency in 1975.</p>
+        <span class="timeline-tag">Leadership</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">1975</div>
+      <div class="timeline-content">
+        <h3>The Emergency (1975–1977)</h3>
+        <p>Citing internal disturbance, Prime Minister Indira Gandhi declared a State of Emergency, suspending civil liberties and press freedom for 21 months. Thousands of opposition leaders were imprisoned. The Emergency remains one of the most controversial chapters in Indian democratic history.</p>
+        <span class="timeline-tag">Civil Liberties</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">1977</div>
+      <div class="timeline-content">
+        <h3>India's First Transfer of Power</h3>
+        <p>The post-Emergency election saw the Indian National Congress defeated for the first time. The Janata Party coalition, uniting disparate opposition forces, came to power under Morarji Desai — proving India's democratic institutions could survive authoritarian stress.</p>
+        <span class="timeline-tag">Democracy</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">1991</div>
+      <div class="timeline-content">
+        <h3>Economic Liberalisation</h3>
+        <p>Facing a balance-of-payments crisis, Finance Minister Manmohan Singh under PM Narasimha Rao implemented sweeping economic reforms — dismantling the Licence Raj, opening India to foreign investment, and setting the stage for decades of rapid growth. A turning point in India's modern political economy.</p>
+        <span class="timeline-tag">Economy</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">2014</div>
+      <div class="timeline-content">
+        <h3>The BJP's Historic Majority</h3>
+        <p>Narendra Modi led the Bharatiya Janata Party to a landmark majority — the first single-party majority in 30 years. The election saw the highest voter turnout (66.4%) in India's history to that point, and marked a shift in Indian political dynamics toward Hindu nationalist politics and development-focused campaigning.</p>
+        <span class="timeline-tag">Elections</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">2024</div>
+      <div class="timeline-content">
+        <h3>The World's Largest Election</h3>
+        <p>With 968 million registered voters, the 2024 Lok Sabha election was the largest democratic exercise in human history. Conducted across 7 phases over 44 days, the BJP-led NDA secured a third consecutive term, though with a reduced majority — requiring coalition partners for government formation.</p>
+        <span class="timeline-tag">2024</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOVEMENTS -->
+<section class="movements-section" id="movements">
+  <div class="section-label">People's Movements</div>
+  <h2>Defining Political Movements</h2>
+
+  <div class="movements-grid">
+    <div class="movement-card">
+      <div class="movement-icon">✊</div>
+      <h3>Non-Cooperation Movement</h3>
+      <p>Gandhi's call to Indians to withdraw from British institutions through peaceful non-compliance — boycotting courts, schools, and colonial goods — mobilised millions and fundamentally altered the terms of colonial rule.</p>
+      <div class="movement-year">1920 – 1922</div>
+    </div>
+
+    <div class="movement-card">
+      <div class="movement-icon">🧂</div>
+      <h3>Salt March (Dandi March)</h3>
+      <p>Gandhi's 386-km march to the sea to make salt in defiance of British tax law became a global symbol of nonviolent resistance and galvanised the independence movement like no event before it.</p>
+      <div class="movement-year">1930</div>
+    </div>
+
+    <div class="movement-card">
+      <div class="movement-icon">🚪</div>
+      <h3>Quit India Movement</h3>
+      <p>Gandhi's "Do or Die" call for immediate British withdrawal from India led to mass arrests, including of the entire Congress leadership, and demonstrated that colonial rule could no longer command consent.</p>
+      <div class="movement-year">1942</div>
+    </div>
+
+    <div class="movement-card">
+      <div class="movement-icon">⚖️</div>
+      <h3>Dalit Rights Movement</h3>
+      <p>Dr B.R. Ambedkar's lifelong struggle against caste discrimination culminated in constitutionally enshrined protections for Scheduled Castes and Tribes, reservations in public institutions, and the abolition of untouchability.</p>
+      <div class="movement-year">1920s – 1956</div>
+    </div>
+
+    <div class="movement-card">
+      <div class="movement-icon">🌱</div>
+      <h3>Chipko Movement</h3>
+      <p>Women in the Himalayan foothills literally embraced trees to prevent logging, spawning one of India's earliest and most influential environmental movements and inspiring ecological activism globally.</p>
+      <div class="movement-year">1973</div>
+    </div>
+
+    <div class="movement-card">
+      <div class="movement-icon">📜</div>
+      <h3>RTI Movement</h3>
+      <p>The grassroots campaign for the Right to Information, led by activists including Aruna Roy and the MKSS in Rajasthan, culminated in the landmark RTI Act 2005 — transforming government accountability in India.</p>
+      <div class="movement-year">1990s – 2005</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="quote-bg">"</div>
+  <blockquote>
+    <p>"At the stroke of the midnight hour, when the world sleeps, India will awake to life and freedom."</p>
+    <cite>— Jawaharlal Nehru, Tryst with Destiny, 14 August 1947</cite>
+  </blockquote>
+</section>
+
+<!-- ELECTIONS TABLE -->
+<section class="elections-section" id="elections">
+  <div class="section-label">Lok Sabha Results</div>
+  <h2>General Election Results at a Glance</h2>
+
+  <table class="elections-table">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Winning Party / Alliance</th>
+        <th>Seats Won</th>
+        <th>Prime Minister</th>
+        <th>Voter Turnout</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="election-year-cell">1952</td>
+        <td><span class="winner-pill">INC</span></td>
+        <td>364 / 489</td>
+        <td>Jawaharlal Nehru</td>
+        <td>45.7%</td>
+      </tr>
+      <tr>
+        <td class="election-year-cell">1967</td>
+        <td><span class="winner-pill">INC</span></td>
+        <td>283 / 520</td>
+        <td>Indira Gandhi</td>
+        <td>61.3%</td>
+      </tr>
+      <tr>
+        <td class="election-year-cell">1977</td>
+        <td><span class="winner-pill">Janata Party</span></td>
+        <td>295 / 542</td>
+        <td>Morarji Desai</td>
+        <td>60.5%</td>
+      </tr>
+      <tr>
+        <td class="election-year-cell">1984</td>
+        <td><span class="winner-pill">INC</span></td>
+        <td>404 / 514</td>
+        <td>Rajiv Gandhi</td>
+        <td>63.6%</td>
+      </tr>
+      <tr>
+        <td class="election-year-cell">1996</td>
+        <td><span class="winner-pill">BJP + Allies</span></td>
+        <td>161 / 543</td>
+        <td>A.B. Vajpayee (13 days)</td>
+        <td>57.9%</td>
+      </tr>
+      <tr>
+        <td class="election-year-cell">2004</td>
+        <td><span class="winner-pill">UPA (INC led)</span></td>
+        <td>218 / 543</td>
+        <td>Manmohan Singh</td>
+        <td>58.1%</td>
+      </tr>
+      <tr>
+        <td class="election-year-cell">2014</td>
+        <td><span class="winner-pill">NDA (BJP led)</span></td>
+        <td>336 / 543</td>
+        <td>Narendra Modi</td>
+        <td>66.4%</td>
+      </tr>
+      <tr>
+        <td class="election-year-cell">2019</td>
+        <td><span class="winner-pill">NDA (BJP led)</span></td>
+        <td>353 / 543</td>
+        <td>Narendra Modi</td>
+        <td>67.4%</td>
+      </tr>
+      <tr>
+        <td class="election-year-cell">2024</td>
+        <td><span class="winner-pill">NDA (BJP led)</span></td>
+        <td>293 / 543</td>
+        <td>Narendra Modi</td>
+        <td>65.8%</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars-section" id="about">
+  <div class="section-label">Our Mission</div>
+  <h2>What IndianVoter.in Stands For</h2>
+  <div class="pillars-grid">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <h3>Historical Literacy</h3>
+      <p>Every voter deserves to understand the struggles and sacrifices that built India's democracy. We document the record honestly.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <h3>Civic Awareness</h3>
+      <p>From how to register, to what your elected representative is accountable for — we make the machinery of democracy legible.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <h3>Political Plurality</h3>
+      <p>India's democracy is vast and plural. We document the full spectrum of movements, parties, and political traditions without partisan bias.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">04</div>
+      <h3>Diaspora Voice</h3>
+      <p>Indians abroad remain deeply connected to India's democratic story. This platform speaks to the global Indian community.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div>
+    <div class="section-label" style="color: var(--gold);">Stay Informed</div>
+    <h2>Political History.<br>In Your Inbox.</h2>
+    <p>Monthly deep-dives into Indian political history, election analysis, and civic explainers — for the engaged Indian citizen.</p>
+  </div>
+  <div class="subscribe-form">
+    <input type="text" placeholder="Your name" />
+    <input type="email" placeholder="Your email address" />
+    <button class="btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Subscribe — It's Free</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Indian<span>Voter</span>.in</div>
+  <div class="footer-note">© 2025 indianvoter.in · For educational and civic purposes · Not affiliated with any political party</div>
+  <div class="footer-tricolour">
+    <span style="background:#FF9933;"></span>
+    <span style="background:#FFFFFF;"></span>
+    <span style="background:#138808;"></span>
+  </div>
+</footer>
+
+<script>
+  // Scroll animation for timeline
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
